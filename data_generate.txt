@@ -1,0 +1,8 @@
+# users
+rails g scaffold User user:string password:string
+
+# threads
+rails g scaffold Thread_page title:string body:string user:references
+
+# comments
+rails g scaffold Comment body:string thread_page:references user:references
