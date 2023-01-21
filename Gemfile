@@ -15,6 +15,9 @@ gem "puma", "~> 5.0"
 # Active Model Serializer (to nest JSON objects)
 gem 'active_model_serializers', '~> 0.10.2'
 
+# JWT Authentication
+gem 'jwt'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -25,7 +28,7 @@ gem 'active_model_serializers', '~> 0.10.2'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]

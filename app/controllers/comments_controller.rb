@@ -8,23 +8,29 @@ class CommentsController < ApplicationController
     render json: @comments
   end
 
-  # GET /comments/1
+  # GET /comments/id
   def show
     render json: @comment
   end
 
   # POST /comments
+  # Create new comment
+  # Frontend: if success, display success message and reload window
+  # Else if error, display error message through array of error strings
   def create
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      render json: @comment, status: :created, location: @comment
+      render json: @comment, status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /comments/1
+  # PATCH/PUT /comments/id
+  # Edit comment
+  # Frontend: if success, display success message and reload window
+  # Else if error, display error message through array of error strings
   def update
     if @comment.update(comment_params)
       render json: @comment
@@ -33,19 +39,20 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
+  # DELETE /comments/id
+  # Frontend: if success, display success message and reload window
+  # Else if error, display error message through array of error strings
   def destroy
     @comment.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Abstraction for parameters
     def set_comment
       @comment = Comment.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :thread_page_id, :user_id)
+      params.permit(:body, :thread_page_id, :user_id)
     end
 end
