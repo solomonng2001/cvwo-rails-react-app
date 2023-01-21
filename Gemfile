@@ -18,6 +18,8 @@ gem 'active_model_serializers', '~> 0.10.2'
 # JWT Authentication
 gem 'jwt'
 
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
